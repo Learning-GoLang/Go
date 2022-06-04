@@ -1,15 +1,35 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
-	num1 := 18
-
-	if num1%2 == 0 {
-		fmt.Println("Given number", num1, " is even")
-	} else {
-		fmt.Println("Given number", num1, "is odd")
+	i := 2
+	fmt.Print("Write ", i, " as ")
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
 	}
 
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("I'm a bool")
+		case int:
+			fmt.Println("I'm an int")
+		case string:
+			fmt.Println("I'm a string")
+		default:
+			fmt.Printf("Don't know type %T\n", t)
+		}
+	}
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("test")
 }
